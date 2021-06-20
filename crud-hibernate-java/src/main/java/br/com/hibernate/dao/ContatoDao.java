@@ -9,7 +9,6 @@ import br.com.hibernate.util.Util;
 
 public class ContatoDao implements IContatoDao {
 
-	@Override
 	public void save(Contato contato) {
 
 		org.hibernate.Transaction transaction = null;
@@ -88,8 +87,6 @@ public class ContatoDao implements IContatoDao {
 		return contato;
 	}
 
-	// return contato;
-
 	@Override
 	public void deleteContatos(int id) {
 
@@ -113,13 +110,11 @@ public class ContatoDao implements IContatoDao {
 		}
 	}
 
-	@Override
 	public Contato getById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
+	
 	public void deleteContatos(long id) {
 		// TODO Auto-generated method stub
 

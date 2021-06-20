@@ -14,10 +14,10 @@ public class Main {
         
         // INSERE NO BANCO - ok
 
-       //Contato contato = new Contato("MENDES",28,1);
-		//contato.setDataCadastro(new Date());
+       Contato contato = new Contato("PAULO ROCHA",28,1);
+	   contato.setDataCadastro(new Date());
 		
-       // con.save(contato);
+       con.save(contato);
         
 	    //ATUALIZA CONTATO NO BANCO - ok
 
