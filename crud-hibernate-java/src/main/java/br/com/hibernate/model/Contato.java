@@ -1,14 +1,15 @@
 package br.com.hibernate.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+
 @Entity
-@Table(name = "contatos")
+
 public class Contato {
 
 	@Id
@@ -23,9 +24,9 @@ public class Contato {
 		this.idade = idade;
 		this.id = id;
 	}
-	
+
 	public Contato() {
-		
+
 	}
 
 	public int getId() {

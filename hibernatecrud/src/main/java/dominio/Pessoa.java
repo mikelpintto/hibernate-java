@@ -2,6 +2,7 @@ package dominio;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +16,7 @@ public class Pessoa implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Column(name = "nome", unique = true, length = 20, nullable = false)
 	private String nome;
 	private String email;
 
@@ -55,6 +57,11 @@ public class Pessoa implements Serializable {
 	@Override
 	public String toString() {
 		return "Pessoa [id=" + id + ", nome=" + nome + ", email=" + email + "]";
+	}
+
+	public Object getResultList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

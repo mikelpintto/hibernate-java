@@ -8,9 +8,9 @@ public class Programa {
 	public static void main(String[] args) {
 
 		//salvar no banco de dados
-		Pessoa pessoa = new Pessoa("Fabiano", "fabiano@gmail.com");
+		//Pessoa pessoa = new Pessoa("ZE RAMALHO", "RAMALHO@gmail.com");
 		PessoaDao pessoaDao = new PessoaDao();
-		pessoaDao.save(pessoa);
+		//pessoaDao.save(pessoa);
 
 		// atualiza no banco de dados
 		
@@ -26,6 +26,14 @@ public class Programa {
 		// deletar pelo id do banco de dados
 
 		// pessoaDao.deleteById(1);
+		
+		// busca pessoa pelo nome
+		
+		//pessoaDao.getByNome("ZE RAMALHO");
+		
+		//busca pessoa pelo email
+		
+		pessoaDao.getByEmail("RAMALHO@gmail.com");
 
 	}
 

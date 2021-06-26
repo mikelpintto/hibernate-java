@@ -1,6 +1,12 @@
 package br.com.hibernate.dao;
 
+import java.sql.Date;
 import java.util.List;
+
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
@@ -114,9 +120,70 @@ public class ContatoDao implements IContatoDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	public void deleteContatos(long id) {
 		// TODO Auto-generated method stub
 
 	}
+
+	public void getNome(String nome) {
+
+		try(Session session = Util.getSessionFactory().openSession()){
+		CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+
+		CriteriaQuery<Contato> criteriaQuery = criteriaBuilder.createQuery(Contato.class);
+		Root<Contato> root = criteriaQuery.from(Contato.class);
+
+		criteriaQuery.select(root);
+		criteriaQuery.where(criteriaBuilder.equal(root.get("nome"), nome));
+
+		TypedQuery<Contato> typedQuery = session.createQuery(criteriaQuery);
+		Contato contato = typedQuery.getSingleResult();
+		System.out.println(contato.getNome() + ", " + contato.getIdade() + ", " + contato.getDataCadastro() );
+		}catch (Exception e) {
+			// if (transaction != null) {
+			// transaction.rollback();
+			e.printStackTrace();
+		}
+
+	}
+
+	public void getByIdade( int idade) {
+
+		try(Session session = Util.getSessionFactory().openSession()){
+		CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+
+		CriteriaQuery<Contato> criteriaQuery = criteriaBuilder.createQuery(Contato.class);
+		Root<Contato> root = criteriaQuery.from(Contato.class);
+
+		criteriaQuery.select(root);
+		criteriaQuery.where(criteriaBuilder.equal(root.get("idade"), idade));
+
+		TypedQuery<Contato> typedQuery = session.createQuery(criteriaQuery);
+		Contato contato = typedQuery.getSingleResult();
+		System.out.println(contato.getNome() + ", " + contato.getIdade() + ", " + contato.getDataCadastro() );
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void getByDataCadastro(String dataCadastro) {
+		try(Session session = Util.getSessionFactory().openSession()){
+		CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+
+		CriteriaQuery<Contato> criteriaQuery = criteriaBuilder.createQuery(Contato.class);
+		Root<Contato> root = criteriaQuery.from(Contato.class);
+
+		criteriaQuery.select(root);
+		criteriaQuery.where(criteriaBuilder.equal(root.get("dataCadastro"), dataCadastro));
+
+		TypedQuery<Contato> typedQuery = session.createQuery(criteriaQuery);
+		Contato contato = typedQuery.getSingleResult();
+		System.out.println(contato.getNome() + ", " + contato.getIdade() + ", " + contato.getDataCadastro() );
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
 }

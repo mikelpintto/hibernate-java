@@ -1,11 +1,7 @@
 package br.com.hibernate.aplicacao;
 
-import java.util.Date;
-
 import br.com.hibernate.dao.ContatoDao;
-import br.com.hibernate.model.Contato;
 
-@SuppressWarnings("unused")
 public class Main {
 	
 	public static void main(String[] args) {
@@ -14,10 +10,11 @@ public class Main {
         
         // INSERE NO BANCO - ok
 
-       Contato contato = new Contato("PAULO ROCHA",28,1);
-	   contato.setDataCadastro(new Date());
-		
-       con.save(contato);
+//       Contato contato = new Contato("ZAGALLO",9,1);
+//       String pattern = "yyyy-MM-dd";
+//       SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+//	   contato.setDataCadastro(new Date());
+//       con.save(contato);
         
 	    //ATUALIZA CONTATO NO BANCO - ok
 
@@ -38,7 +35,19 @@ public class Main {
 		 
 		 //con.deleteContatos(contato.getId());
 		
+         // trazer informações pelo nome
+        
+        // con.getNome("danilo roger");
+         
+         // trazer informações pela idade
+         
+       //  con.getByIdade(15);
+         
+         // trazer informações pela data de cadastro
+         
+         //con.getByDataCadastro("21-06-23");
 
+        
     }
 
 }
